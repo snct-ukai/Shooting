@@ -37,7 +37,7 @@ void FlyingObject::draw()
 
 void FlyingObject::drawDebug()
 {
-    /*HBRUSH hBrush, hBrush_old;
+    HBRUSH hBrush, hBrush_old;
     HPEN hPen, hPen_old;
     hBrush = (HBRUSH)GetStockObject(NULL_BRUSH);
     hPen = CreatePen(PS_DOT, 1, RGB(255, 0, 0));
@@ -46,5 +46,5 @@ void FlyingObject::drawDebug()
     Ellipse(App::hDC, x - radius, y - radius, x + radius, y + radius);
     DeleteObject(hPen);
     SelectObject(App::hDC, hBrush_old);
-    SelectObject(App::hDC, hPen_old);*/
+    SelectObject(App::hDC, hPen_old);
 }
