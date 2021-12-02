@@ -2,21 +2,33 @@
 
 void ShootingApp::init() {
 	App::init();
+	for (int i = 0; i < N_ENEMY_A; i++) {
+		enemyA[i].init();
+	}
 	fighter.init();
 }
 
 void ShootingApp::cleanup() {
 	App::cleanup();
+	for (int i = 0; i < N_ENEMY_A; i++) {
+		enemyA[i].cleanup();
+	}
 	fighter.cleanup();
 }
 
 void ShootingApp::update() {
 	App::update();
+	for (int i = 0; i < N_ENEMY_A; i++) {
+		enemyA[i].update();
+	}
 	fighter.update();
 }
 
 void ShootingApp::draw() {
 	App::draw();
+	for (int i = 0; i < N_ENEMY_A; i++) {
+		enemyA[i].draw();
+	}
 	fighter.draw();
 }
 
