@@ -25,6 +25,8 @@ void EnemyA::init()
 	vy = 100 + 200 * App::rand();
 
 	radius = 30;
+
+	point = 10;
 }
 
 void EnemyA::update()

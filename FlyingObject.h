@@ -11,6 +11,7 @@ protected:
 	double radius;
 	Timer mtimer;
 	Timer elapsed;	// 前回のupdateからの経過時間計測用
+	Timer etimer;
 public:
 	enum STATUS {
 		ACTIVE = 1,
@@ -26,4 +27,6 @@ public:
 	virtual void update();
 	virtual void draw();
 	virtual void drawDebug();
+	bool checkCollision(FlyingObject* fo);
+	void drawExplosion();
 };

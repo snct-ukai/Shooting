@@ -2,34 +2,68 @@
 
 void ShootingApp::init() {
 	App::init();
+	fighter.init();
+	fos.push_back(&fighter);
 	for (int i = 0; i < N_ENEMY_A; i++) {
 		enemyA[i].init();
+		enemies.push_back(&enemyA[i]);
+		fos.push_back(&enemyA[i]);
 	}
-	fighter.init();
+	for (size_t i = 0; i < N_MISSILE; i++) {
+		fighter.loadMissile(&missile[i]);
+		missiles.push_back(&missile[i]);
+		fos.push_back(&missile[i]);
+	}
+	score.init();
 }
 
 void ShootingApp::cleanup() {
 	App::cleanup();
-	for (int i = 0; i < N_ENEMY_A; i++) {
-		enemyA[i].cleanup();
+	for (size_t i = 0; i < fos.size(); i++) {
+		fos[i]->cleanup();
 	}
-	fighter.cleanup();
+	fos.clear();
+	enemies.clear();
+	missiles.clear();
 }
 
 void ShootingApp::update() {
 	App::update();
-	for (int i = 0; i < N_ENEMY_A; i++) {
-		enemyA[i].update();
+	for (size_t i = 0; i < fos.size(); i++) {
+		if (fos[i]->status & FlyingObject::ACTIVE) {
+			fos[i]->update();
+		}
 	}
-	fighter.update();
+	for (size_t i = 0; i < enemies.size(); i++) {
+		if (!(enemies[i]->status & FlyingObject::ACTIVE)) {
+			continue;
+		}
+		for (size_t j = 0; j < missiles.size(); j++) {
+			if (enemies[i]->checkCollision(missiles[j])) {
+				score.add(enemies[i]->point);
+			}
+		}
+		enemies[i]->checkCollision(&fighter);
+	}
+	for (size_t i = 0; i < enemies.size(); i++) {
+		if (!enemies[i]->status) {
+			enemies[i]->init();
+		}
+	}
+	if (!fighter.status) {
+		cleanup();
+		init();
+	}
 }
 
 void ShootingApp::draw() {
 	App::draw();
-	for (int i = 0; i < N_ENEMY_A; i++) {
-		enemyA[i].draw();
+	for (size_t i = 0; i < fos.size(); i++) {
+		if (fos[i]->status & FlyingObject::ACTIVE) {
+			fos[i]->draw();
+		}
 	}
-	fighter.draw();
+	score.draw(10, 10);
 }
 
 void ShootingApp::keyDown(WPARAM key) {
@@ -45,6 +79,9 @@ void ShootingApp::keyDown(WPARAM key) {
 		break;
 	case VK_DOWN:
 		fighter.move(Fighter::BACK);
+		break;
+	case VK_SPACE:
+		fighter.shoot();
 		break;
 	}
 }
