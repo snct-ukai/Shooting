@@ -3,7 +3,7 @@
 #include "ShootingApp.h"
 #include "EnemyA.h"
 
-EnemyA::EnemyA() : Enemy()
+EnemyA::EnemyA()
 {
 }
 

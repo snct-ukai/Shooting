@@ -61,11 +61,15 @@ void FlyingObject::drawDebug()
 }
 
 bool FlyingObject::checkCollision(FlyingObject* fo) {
+    double dx = x - fo->x;
+    double dy = y - fo->y;
+    double distance = radius + fo->radius;
+
     if (!(fo->status & ACTIVE)) {
         return false;
     }
 
-    if (sqr(radius + fo->radius) < (sqr(x - fo->x) + sqr(y - fo->y))) {
+    if (Math::power(distance,2) < (Math::power(dx,2) + Math::power(dy,2))) {
         return false;
     }
 

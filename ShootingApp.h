@@ -5,6 +5,7 @@
 #include "EnemyA.h"
 #include "Missile.h"
 #include "Score.h"
+#include "Math.h"
 #define N_MISSILE 10
 #define N_ENEMY_A 2
 

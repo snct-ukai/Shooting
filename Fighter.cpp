@@ -17,6 +17,7 @@ void Fighter::init()
 	vx = 200;
 	y = 500;
 	vy = 200;
+	radius = 30;
 }
 
 void Fighter::cleanup()
@@ -57,7 +58,6 @@ void Fighter::draw()
 	TextOut(App::hDC, (int)x-28, (int)y-8, c, lstrlen(c));
 	c = TEXT("-+-");
 	TextOut(App::hDC, (int)x-17, (int)y+6, c, lstrlen(c));
-	radius = 30;
 
 	drawDebug();
 }
