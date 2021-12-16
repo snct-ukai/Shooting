@@ -1,6 +1,6 @@
 #include "ShootingApp.h"
 #include "FlyingObject.h"
-#define sqr(x) (x*x)
+#define sqr(x) ((x)*(x))
 
 FlyingObject::FlyingObject() : x(0), vx(0), y(0), vy(0), radius(0), status(0)
 {
@@ -69,7 +69,7 @@ bool FlyingObject::checkCollision(FlyingObject* fo) {
         return false;
     }
 
-    if (Math::power(distance,2) < (Math::power(dx,2) + Math::power(dy,2))) {
+    if (sqr(radius + fo->radius) < (sqr(x - fo->x) + sqr(y - fo->y))) {
         return false;
     }
 
