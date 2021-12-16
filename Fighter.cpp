@@ -28,6 +28,12 @@ void Fighter::cleanup()
 
 void Fighter::update()
 {
+	if (status & COLLISION) {
+		if (etimer.get() > 0.5) {
+			cleanup();
+		}
+		return;
+	}
 	FlyingObject::update();
 
 	double dx = 0;
@@ -50,6 +56,11 @@ void Fighter::update()
 
 void Fighter::draw()
 {
+
+	if (status & COLLISION) {
+		drawExplosion();
+		return;
+	}
 	LPCWSTR c;
 
 	c = TEXT("|");
@@ -78,8 +89,6 @@ void Fighter::loadMissile(Missile* m) {
 }
 
 void Fighter::shoot() {
-	for (size_t i = 0; i < missiles.size(); i++) {
-	}
 	for (size_t i = 0; i < missiles.size(); i++) {
 		if (!(missiles[i]->status & ACTIVE)) {
 			missiles[i]->init();

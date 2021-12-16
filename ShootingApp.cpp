@@ -34,16 +34,17 @@ void ShootingApp::update() {
 			fos[i]->update();
 		}
 	}
-	for (size_t i = 0; i < enemies.size(); i++) {
+	for (size_t i = 0; i < enemies.size(); i++) { // すべての敵機について衝突判定
 		if (!(enemies[i]->status & FlyingObject::ACTIVE)) {
-			continue;
+			// アクティブでなければ
+			continue; // 判定しない
 		}
-		for (size_t j = 0; j < missiles.size(); j++) {
-			if (enemies[i]->checkCollision(missiles[j])) {
+		for (size_t j = 0; j < missiles.size(); j++) {// すべてのミサイルについて
+			if (enemies[i]->checkCollision(missiles[j])) { // 衝突していたら
 				score.add(enemies[i]->point);
 			}
 		}
-		enemies[i]->checkCollision(&fighter);
+		enemies[i]->checkCollision(&fighter); // 自機との衝突判定
 	}
 	for (size_t i = 0; i < enemies.size(); i++) {
 		if (!enemies[i]->status) {

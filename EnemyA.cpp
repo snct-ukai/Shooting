@@ -31,6 +31,12 @@ void EnemyA::init()
 
 void EnemyA::update()
 {
+	if (status & COLLISION) {
+		if (etimer.get() > 0.5) {
+			cleanup();
+		}
+		return;
+	}
 	double dt = elapsed.get();
 	double mt = mtimer.get();
 	double dx, dy;
@@ -50,5 +56,9 @@ void EnemyA::update()
 
 void EnemyA::draw()
 {
+	if (status & COLLISION) {
+		drawExplosion();
+		return;
+	}
 	Ellipse(App::hDC, x - radius, y - radius, x + radius, y + radius);
 }

@@ -16,4 +16,3 @@ public:
     void fire(double x, double y, double vx, double vy);
     ~Missile();
 };
-
