@@ -30,20 +30,10 @@ void FlyingObject::cleanup()
 
 void FlyingObject::update()
 {
-    if (status & COLLISION) {
-        if (etimer.get() > 0.5) {
-            cleanup();
-        }
-        return;
-    }
 }
 
 void FlyingObject::draw()
 {
-    if (status & COLLISION) {
-        drawExplosion();
-        return;
-    }
 }
 
 void FlyingObject::drawDebug()
