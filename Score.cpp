@@ -5,6 +5,7 @@ Score::Score() :score(0){}
 
 void Score::init() {
 	score = 0;
+	OutputDebugString(TEXT("init\n"));
 }
 
 void Score::add(int point) {
@@ -12,7 +13,7 @@ void Score::add(int point) {
 }
 
 void Score::draw(int x, int y) {
-	TCHAR str[10];
-	wsprintf(str, TEXT("%d"), score);
+	TCHAR str[20];
+	wsprintf(str, TEXT("score:%d"), score);
 	TextOut(App::hDC, x, y, str, lstrlen(str));
 }

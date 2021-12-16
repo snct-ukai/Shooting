@@ -93,6 +93,9 @@ void Fighter::shoot() {
 		if (!(missiles[i]->status & ACTIVE)) {
 			missiles[i]->init();
 			missiles[i]->fire(x, y - radius, 0, -400);
+			//TCHAR str[20];
+			//wsprintf(str, TEXT("%d\n"), missiles[i]-> status);
+			//OutputDebugString(str);
 			return;
 		}
 	}

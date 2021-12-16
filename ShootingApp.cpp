@@ -40,7 +40,11 @@ void ShootingApp::update() {
 			continue; // ”»’è‚µ‚È‚¢
 		}
 		for (size_t j = 0; j < missiles.size(); j++) {// ‚·‚×‚Ä‚Ìƒ~ƒTƒCƒ‹‚É‚Â‚¢‚Ä
+				//TCHAR str[30];
+				//wsprintf(str, TEXT("missiles:%d"), missiles.size());
+				//OutputDebugString(str);
 			if (enemies[i]->checkCollision(missiles[j])) { // Õ“Ë‚µ‚Ä‚¢‚½‚ç
+				OutputDebugString(TEXT("missile\n"));
 				score.add(enemies[i]->point);
 			}
 		}
