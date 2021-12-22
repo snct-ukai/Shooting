@@ -1,7 +1,7 @@
 #include "ShootingApp.h"
 #include "Missile.h"
 
-Missile::Missile(): x(0), y(0), vx(0), vy(0){}
+Missile::Missile(){}
 
 void Missile::init()
 {
