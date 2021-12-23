@@ -23,7 +23,7 @@ void ShootingApp::init() {
 	score.init();
 	Sound::getInstance()->registerFile(TEXT(""), TEXT("explosion"));
 	Sound::getInstance()->registerFile(TEXT(""), TEXT("shoot"));
-	Sound::getInstance()->registerFile(TEXT(""), TEXT("bgm"));
+	Sound::getInstance()->registerFile(TEXT("M:/music/orchestral_mission.mp3"), TEXT("bgm"));
 	Sound::getInstance()->request(TEXT("bgm"));
 }
 
