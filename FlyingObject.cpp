@@ -51,6 +51,12 @@ void FlyingObject::drawDebug()
 }
 
 bool FlyingObject::checkCollision(FlyingObject* fo) {
+    if (fo->status & COLLISION) {
+        return false;
+    }
+    if (status & COLLISION) {
+        return false;
+    }
     if (!(fo->status & ACTIVE)) {
         return false;
     }
