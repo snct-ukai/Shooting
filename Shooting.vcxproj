@@ -151,6 +151,7 @@
     <ClInclude Include="Score.h" />
     <ClInclude Include="Shooting.h" />
     <ClInclude Include="ShootingApp.h" />
+    <ClInclude Include="Sound.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Timer.h" />
   </ItemGroup>
@@ -165,6 +166,7 @@
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="Shooting.cpp" />
     <ClCompile Include="ShootingApp.cpp" />
+    <ClCompile Include="Sound.cpp" />
     <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
