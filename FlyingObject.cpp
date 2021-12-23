@@ -95,7 +95,7 @@ void FlyingObject::drawExplosion() {
         TextOut(App::hDC, (int)x - 25, (int)y - 5, c, lstrlen(c));
     }
     else {
-        if (dynamic_cast<Missile*>(this)) {
+        if (dynamic_cast<Missile*>(this) || dynamic_cast<Fighter*>(this)) {
             Sound::getInstance()->request(TEXT("explosion"));
         }
         c = TEXT("(-)");
