@@ -1,5 +1,6 @@
 #include "ShootingApp.h"
 #include "FlyingObject.h"
+#include "Sound.h"
 #define sqr(x) ((x)*(x))
 
 FlyingObject::FlyingObject() : x(0), vx(0), y(0), vy(0), radius(0), status(0)
@@ -94,6 +95,9 @@ void FlyingObject::drawExplosion() {
         TextOut(App::hDC, (int)x - 25, (int)y - 5, c, lstrlen(c));
     }
     else {
+        if (dynamic_cast<Missile*>(this)) {
+            Sound::getInstance()->request(TEXT("explosion"));
+        }
         c = TEXT("(-)");
         TextOut(App::hDC, (int)x - 15, (int)y - 5, c, lstrlen(c));
     }

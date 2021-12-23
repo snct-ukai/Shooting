@@ -1,4 +1,5 @@
 #include "ShootingApp.h"
+#include "Sound.h"
 
 void ShootingApp::init() {
 	App::init();
@@ -20,6 +21,10 @@ void ShootingApp::init() {
 		fos.push_back(&missile[i]);
 	}
 	score.init();
+	Sound::getInstance()->registerFile(TEXT(""), TEXT("explosion"));
+	Sound::getInstance()->registerFile(TEXT(""), TEXT("shoot"));
+	Sound::getInstance()->registerFile(TEXT(""), TEXT("bgm"));
+	Sound::getInstance()->request(TEXT("bgm"));
 }
 
 void ShootingApp::cleanup() {
@@ -30,6 +35,7 @@ void ShootingApp::cleanup() {
 	fos.clear();
 	enemies.clear();
 	missiles.clear();
+	Sound::getInstance()->cleanup();
 }
 
 void ShootingApp::update() {
@@ -74,6 +80,7 @@ void ShootingApp::draw() {
 		}
 	}
 	score.draw(10, 10);
+	Sound::getInstance()->play();
 }
 
 void ShootingApp::keyDown(WPARAM key) {
