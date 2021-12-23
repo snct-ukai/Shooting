@@ -21,8 +21,8 @@ void ShootingApp::init() {
 		fos.push_back(&missile[i]);
 	}
 	score.init();
-	Sound::getInstance()->registerFile(TEXT(""), TEXT("explosion"));
-	Sound::getInstance()->registerFile(TEXT(""), TEXT("shoot"));
+	Sound::getInstance()->registerFile(TEXT("M:/music/explosion.mp3"), TEXT("explosion"));
+	Sound::getInstance()->registerFile(TEXT("M:/music/CHIPTUNE.mp3"), TEXT("shoot"));
 	Sound::getInstance()->registerFile(TEXT("M:/music/orchestral_mission.mp3"), TEXT("bgm"));
 	Sound::getInstance()->request(TEXT("bgm"));
 }
