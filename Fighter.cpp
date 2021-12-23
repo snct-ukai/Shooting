@@ -39,18 +39,26 @@ void Fighter::update()
 	double dx = 0;
 	double dy = 0;
 	double dt = elapsed.get();
-
-	if (dir & LEFT)
-		dx -= vx * dt;
-	if (dir & RIGHT)
-		dx += vx * dt;
-	if (dir & FORE)
-		dy -= vy * dt;
-	if (dir & BACK)
-		dy += vy * dt;
-
-	x += dx;
-	y += dy;
+	if (x > 0 && x < 800) {
+		if (dir & LEFT)
+			dx -= vx * dt;
+		if (dir & RIGHT)
+			dx += vx * dt;
+		x += dx;
+	}
+	else {
+		x = x <= 0 ? 1 : 799;
+	}
+	if (y > 0 && y < 600) {
+		if (dir & FORE)
+			dy -= vy * dt;
+		if (dir & BACK)
+			dy += vy * dt;
+		y += dy;
+	}
+	else {
+		y = y <= 0 ? 1 : 599;
+	}
 	elapsed.reset();
 }
 
