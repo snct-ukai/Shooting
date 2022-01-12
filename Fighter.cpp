@@ -72,12 +72,12 @@ void Fighter::draw()
 	}
 	LPCWSTR c;
 
-	c = TEXT("|");
-	TextOut(App::hDC, (int)x-2, (int)y-22, c, lstrlen(c));
-	c = TEXT("--+--");
-	TextOut(App::hDC, (int)x-28, (int)y-8, c, lstrlen(c));
-	c = TEXT("-+-");
-	TextOut(App::hDC, (int)x-17, (int)y+6, c, lstrlen(c));
+	c = TEXT("*");
+	TextOut(App::hDC, (int)x-6, (int)y-22, c, lstrlen(c));
+	c = TEXT("***");
+	TextOut(App::hDC, (int)x-17, (int)y-8, c, lstrlen(c));
+	c = TEXT("*****");
+	TextOut(App::hDC, (int)x-28, (int)y+6, c, lstrlen(c));
 
 	drawDebug();
 }
