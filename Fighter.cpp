@@ -79,7 +79,7 @@ void Fighter::draw()
 	c = TEXT("*****");
 	TextOut(App::hDC, (int)x-28, (int)y+6, c, lstrlen(c));
 
-	drawDebug();
+	//drawDebug();
 }
 
 
