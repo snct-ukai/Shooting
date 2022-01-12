@@ -21,7 +21,7 @@ void EnemyB::init()
 	x = 100 + 500 * App::rand();
 	y = 100 + 200 * App::rand();
 
-	vx = 100 + 200 * App::rand();
+	vx = 100 + 400 * App::rand();
 	vy = 100 + 200 * App::rand();
 
 	radius = 20;
@@ -45,11 +45,18 @@ void EnemyB::update()
 	if (dt > 1.0 / 30)
 		dt = 1.0 / 30;
 
-	dx = vx * sin(2 * mt + phase) * dt;
+	dx = vx * dt;
 	dy = vy * cos(5 * mt + phase) * dt;
 
 	x += dx;
 	y += dy;
+
+	if (x > 800) {
+		x -= 800;
+	}
+	else if (x < 0) {
+		x += 800;
+	}
 
 	elapsed.reset();
 }
