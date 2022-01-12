@@ -1,4 +1,4 @@
-#define _USE_MATH_DEFINES	// Visual C++‚ÅM_PI‚ðŽg‚¦‚é‚æ‚¤‚É
+#define _USE_MATH_DEFINES
 #include <cmath>
 #include "ShootingApp.h"
 #include "EnemyB.h"
@@ -16,7 +16,7 @@ void EnemyB::init()
 {
 	FlyingObject::init();
 
-	phase = App::rand() * M_PI;	// M_PI‚ÍƒÎ
+	phase = App::rand() * M_PI;
 
 	x = 100 + 500 * App::rand();
 	y = 100 + 200 * App::rand();
@@ -40,8 +40,6 @@ void EnemyB::update()
 	double dt = elapsed.get();
 	double mt = mtimer.get();
 	double dx, dy;
-
-	// update‚ÌŠÔŠu‚ª’·‚·‚¬‚é‚Æ‚«‚ÍA‹­§“I‚Édt‚ðÝ’è
 	if (dt > 1.0 / 30)
 		dt = 1.0 / 30;
 

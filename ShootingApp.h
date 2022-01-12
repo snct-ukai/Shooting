@@ -8,7 +8,7 @@
 #include "EnemyB.h"
 #define N_MISSILE 10
 #define N_ENEMY_A 2
-#define N_ENEMY_B 2
+#define N_ENEMY_B 3
 
 class ShootingApp :
     public App
