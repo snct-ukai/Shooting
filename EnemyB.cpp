@@ -67,5 +67,12 @@ void EnemyB::draw()
 		drawExplosion();
 		return;
 	}
-	Ellipse(App::hDC, x - radius, y - radius, x + radius, y + radius);
+	LPCWSTR c;
+
+	c = TEXT("*");
+	TextOut(App::hDC, (int)x - 6, (int)y + 6, c, lstrlen(c));
+	c = TEXT("**");
+	TextOut(App::hDC, (int)x - 12, (int)y - 8, c, lstrlen(c));
+	c = TEXT("**");
+	TextOut(App::hDC, (int)x - 12, (int)y - 22, c, lstrlen(c));
 }

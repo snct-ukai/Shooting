@@ -31,7 +31,12 @@ void Missile::draw()
 		drawExplosion();
 		return;
 	}
-	Ellipse(App::hDC, x - radius, y - radius, x + radius, y + radius);
+	LPCWSTR c;
+
+	c = TEXT("**");
+	TextOut(App::hDC, (int)x - 12, (int)y + 6, c, lstrlen(c));
+	c = TEXT("**");
+	TextOut(App::hDC, (int)x - 12, (int)y - 8, c, lstrlen(c));
 }
 void Missile::fire(double x, double y, double vx, double vy)
 {
